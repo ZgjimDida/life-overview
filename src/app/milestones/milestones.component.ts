@@ -1,69 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Milestone} from "./milestone.model";
 
 @Component({
-  selector: 'app-milestones',
-  templateUrl: './milestones.component.html',
-  styleUrls: ['./milestones.component.scss']
+    selector: 'app-milestones',
+    templateUrl: './milestones.component.html',
+    styleUrls: ['./milestones.component.scss']
 })
 export class MilestonesComponent implements OnInit {
 
+    milestones: Milestone[] = [];
 
-  multi: any[] = [
-    {
-      name: 'Cyan',
-      series: [
-        {
-          name: 5,
-          value: 2650
-        },
-        {
-          name: 10,
-          value: 2800      },
-        {
-          name: 15,
-          value: 2000
-        }
-      ]
-    },
-    {
-      name: 'Yellow',
-      series: [
-        {
-          name: 5,
-          value: 2500
-        },
-        {
-          name: 10,
-          value: 3100
-        },
-        {
-          name: 15,
-          value: 2350
-        }
-      ]
+    tempMilestone: Milestone = new Milestone();
+
+    multi: any[] =
+        [
+            {
+                "name": "Excitements",
+                "series": this.milestones
+            }
+        ];
+
+    view: any[] = [700, 400];
+
+    // options
+    showXAxis = true;
+    showYAxis = true;
+    gradient = false;
+    showXAxisLabel = true;
+    xAxisLabel = 'Lifeline';
+    showYAxisLabel = true;
+    yAxisLabel = 'Excitements';
+    timeline = true;
+
+    colorScheme = {
+        domain: ['#00ddbb', '#A10A28', '#C7B42C', '#AAAAAA']
+    };
+
+    constructor() {
     }
-  ];
 
-  view: any[] = [700, 400];
+    ngOnInit() {
 
-  // options
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  xAxisLabel = 'Number';
-  showYAxisLabel = true;
-  yAxisLabel = 'Color Value';
-  timeline = true;
+    }
 
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+    addMilestone() {
+        this.milestones.push(this.tempMilestone);
+        this.tempMilestone=new Milestone();
+    }
 
 }
