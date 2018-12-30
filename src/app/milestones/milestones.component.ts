@@ -55,4 +55,15 @@ export class MilestonesComponent implements OnInit {
             1000);
     }
 
+    deleteMilestone(milestone: Milestone) {
+        this.showChart = false;
+        let index = 0;
+        index = this.milestones.indexOf(milestone);
+        this.milestones.splice(index, 1);
+        setTimeout(() => {
+                this.showChart = true;
+            },
+            1000);
+    }
+
 }
