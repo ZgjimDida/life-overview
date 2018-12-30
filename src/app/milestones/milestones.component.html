@@ -1,4 +1,10 @@
-<ngx-charts-line-chart *ngIf="milestones.length > 0"
+<input placeholder="name" [(ngModel)]="tempMilestone.name"><br><br>
+<input placeholder="value" [(ngModel)]="tempMilestone.value"> <br><br>
+{{tempMilestone.name}}<br><br>
+{{tempMilestone.value}}<br><br>
+<button (click)="addMilestone()">Add milestone</button>
+
+<ngx-charts-line-chart *ngIf="showChart"
         [view]="view"
         [scheme]="colorScheme"
         [results]="multi"
@@ -13,9 +19,5 @@
         [timeline]="timeline"
         (select)="onSelect($event)">
 </ngx-charts-line-chart>
-<input placeholder="name" [(ngModel)]="tempMilestone.name"><br><br>
-<input placeholder="value" [(ngModel)]="tempMilestone.value"> <br><br>
-{{tempMilestone.name}}<br><br>
-{{tempMilestone.value}}<br><br>
-<button (click)="addMilestone()">Add milestone</button>
+
 

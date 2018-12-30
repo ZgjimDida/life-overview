@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Milestone} from "./milestone.model";
+import {Milestone} from './milestone.model';
 
 @Component({
     selector: 'app-milestones',
@@ -15,14 +15,14 @@ export class MilestonesComponent implements OnInit {
     multi: any[] =
         [
             {
-                "name": "Excitements",
-                "series": this.milestones
+                'name': 'Excitements',
+                'series': this.milestones
             }
         ];
 
     view: any[] = [700, 400];
 
-    // options
+// options
     showXAxis = true;
     showYAxis = true;
     gradient = false;
@@ -36,6 +36,8 @@ export class MilestonesComponent implements OnInit {
         domain: ['#00ddbb', '#A10A28', '#C7B42C', '#AAAAAA']
     };
 
+    showChart = false;
+
     constructor() {
     }
 
@@ -44,8 +46,13 @@ export class MilestonesComponent implements OnInit {
     }
 
     addMilestone() {
+        this.showChart = false;
         this.milestones.push(this.tempMilestone);
-        this.tempMilestone=new Milestone();
+        this.tempMilestone = new Milestone();
+        setTimeout(() => {
+                this.showChart = true;
+            },
+            1000);
     }
 
 }
