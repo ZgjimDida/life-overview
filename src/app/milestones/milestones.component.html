@@ -20,4 +20,18 @@
         (select)="onSelect($event)">
 </ngx-charts-line-chart>
 
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let milestone of milestones">
+        <td>{{milestone.name}}</td>
+        <td>{{milestone.value}}</td>
+    </tr>
+    </tbody>
+</table>
 
