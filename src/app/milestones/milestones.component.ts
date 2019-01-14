@@ -38,6 +38,8 @@ export class MilestonesComponent implements OnInit {
 
     showChart = false;
 
+    editing = false;
+
     constructor() {
     }
 
@@ -63,6 +65,19 @@ export class MilestonesComponent implements OnInit {
         setTimeout(() => {
                 this.showChart = true;
             },
+            1000);
+    }
+
+    editFields() {
+        this.editing=true;
+    }
+
+    saveFields() {
+        this.showChart=false;
+        this.editing=false;
+        setTimeout(() => {
+            this.showChart=true;
+        },
             1000);
     }
 
