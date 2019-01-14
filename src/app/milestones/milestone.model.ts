@@ -3,7 +3,7 @@
  */
 
 export class Milestone {
-    constructor(public name: string = null,
+    constructor(public name: string = '',
                 public value: number = null) {
     }
 }

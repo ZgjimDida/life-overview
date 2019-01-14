@@ -2,7 +2,7 @@
 <input placeholder="value" [(ngModel)]="tempMilestone.value"> <br><br>
 {{tempMilestone.name}}<br><br>
 {{tempMilestone.value}}<br><br>
-<button (click)="addMilestone()">Add milestone</button>
+<button (click)="addMilestone()" [disabled]="tempMilestone.name==='' ||  tempMilestone.value===null">Add milestone</button>
 
 <ngx-charts-line-chart *ngIf="showChart"
         [view]="view"
@@ -19,6 +19,7 @@
         [timeline]="timeline"
         (select)="onSelect($event)">
 </ngx-charts-line-chart>
+
 
 <table>
     <thead>
